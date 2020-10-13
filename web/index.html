@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+    <h2>登录页面</h2>
+    <form action="#" onsubmit="return check()">
+        <label>
+           账号： <input type="text" v-model="username" name="username" /><br>
+        </label>
+        <label>
+           密码： <input type="password" v-model="password" name="password" />
+        </label>
+        <input type="submit" v-on:click="check" value="登录">
+    <p v-if="flag">
+          {{message}}
+    </p>
+    </form>
+</div>
+
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag:false,
+            message :"账号或密码为空",
+            username:"",
+            password:"",
+            methods: {
+                check: function ( ) {
+
+                    if (this.name == null|| this.password == null) {
+                           this.flag=true;
+                         return false;
+                    }
+
+
+                }
+            }
+        }
+
+    })
+</script>
+</html>
